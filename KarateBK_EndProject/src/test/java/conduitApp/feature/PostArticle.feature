@@ -16,9 +16,9 @@ Scenario: Validate Posting an Scenarios
     
     Given header Authorization  = 'Token ' + token
     Given path 'articles'
-    And request {"article": {"tagList": ["Meeru"], "title": "Faraaz","description": "Meeru","body": " through-script "}}
+    And request {"article": {"tagList": ["Tags"], "title": "Sumaiya","description": "Test","body": " through-script "}}
     When method Post
     Then status 201
-    And match.response.article.description == 'Meeru'
+    And match response.article.title == 'Sumaiya'
     
 
