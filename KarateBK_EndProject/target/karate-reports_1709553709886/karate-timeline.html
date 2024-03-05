@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-2-thread-1","id":1},{"content":"pool-2-thread-2","id":2},{"content":"pool-2-thread-3","id":3},{"content":"pool-2-thread-4","id":4},{"content":"pool-2-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"conduitApp\/feature\/HomePage[1:9]","start":1709553476143,"end":1709553477754,"title":"conduitApp\/feature\/HomePage[1:9] 17:27:56.143-17:27:57.754 Get all available Tags"},{"id":2,"group":2,"content":"conduitApp\/feature\/HomePage[2:20]","start":1709553476143,"end":1709553477806,"title":"conduitApp\/feature\/HomePage[2:20] 17:27:56.143-17:27:57.806 Get 10 articles from homepage"},{"id":3,"group":3,"content":"conduitApp\/feature\/PostArticle[1:8]","start":1709553476143,"end":1709553479936,"title":"conduitApp\/feature\/PostArticle[1:8] 17:27:56.143-17:27:59.936 Validate Posting an Scenarios","className":"failed"},{"id":4,"group":4,"content":"conduitApp\/feature\/ProdHomePage[1:9]","start":1709553476143,"end":1709553478491,"title":"conduitApp\/feature\/ProdHomePage[1:9] 17:27:56.143-17:27:58.491 Get all available Tags"},{"id":5,"group":5,"content":"conduitApp\/feature\/ProdHomePage[2:20]","start":1709553476143,"end":1709553478733,"title":"conduitApp\/feature\/ProdHomePage[2:20] 17:27:56.143-17:27:58.733 Get 10 articles from homepage -production"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
